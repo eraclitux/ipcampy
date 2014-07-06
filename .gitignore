@@ -1,0 +1,5 @@
+dist
+build
+IpCamPy.egg-info
+*.pyc
+*.swp
