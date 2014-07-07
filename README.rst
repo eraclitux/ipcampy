@@ -8,7 +8,7 @@ This package let you control supported ip cameras from your python app with ease
 
 It comes with utils to quickly make your surveillance system.
 
-Package is written with easy extendibility in mind. Push requests that add new cams are welcome.
+Package is written with easy extendibility in mind. Pull requests that add new cams or fix issues are welcome, encouraged, and credited.
 
 Examples
 ========
@@ -35,4 +35,4 @@ Foscam
 
 Notes
 =====
-This package is in early development. Things **could** works or maybe not. APIs can quickly change. 
+This package is in early development. Things **could** work or maybe not. APIs can quickly change.

@@ -13,8 +13,15 @@ setup(
     packages=['ipcampy', 'ipcampy.test'],
     scripts=['bin/campatrol'],
     url='http://pypi.python.org/pypi/IpCamPy/',
+    classifiers=[
+        'Development Status :: 3 - Alpha',
+        'License :: OSI Approved :: MIT License',
+        'Programming Language :: Python :: 2.7',
+        'Topic :: Multimedia :: Video :: Capture',
+    ],
+    keywords='ipcam foscam raspberrypi surveillance ',
     license='LICENSE.txt',
-    description='Easily control ip cameras. Built in surveillance systems utils.',
+    description='Easily control ip cameras. Comes with built in utilities to make a simple surveillance system.',
     long_description=open('README.rst').read(),
     install_requires=[
         "requests == 1.2.3",
