@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IpCamPy Dashboard</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
+</head>
+<body>
+
+<!-- Start of first page -->
+<div data-role="page" id="foo">
+
+    <div data-role="header">
+        <h1>Cameras</h1>
+    </div><!-- /header -->
+
+    <div role="main" class="ui-content">
+        <ul data-role="listview" data-inset="true">
+            {% if cams is iterable %}
+            {% for cam in cams %}
+            <li><a href="#">{{ cam.cam_type }}</a></li>
+            {% endfor %}
+            {% endif %}
+        </ul>
+        <p>I'm first in the source order so I'm shown as the page.</p>
+        <p>View internal page called <a href="#bar">bar</a></p>
+    </div><!-- /content -->
+
+    <div data-role="footer">
+        <h4>Page Footer</h4>
+    </div><!-- /footer -->
+</div><!-- /page -->
+
+<!-- Start of second page -->
+<div data-role="page" id="bar">
+
+    <div data-role="header">
+        <h1>Bar</h1>
+    </div><!-- /header -->
+
+    <div role="main" class="ui-content">
+        <p>I'm the second in the source order so I'm hidden when the page loads. I'm just shown if a link that references my id is beeing clicked.</p>
+        <p><a href="#foo">Back to foo</a></p>
+    </div><!-- /content -->
+
+    <div data-role="footer">
+        <h4>Page Footer</h4>
+    </div><!-- /footer -->
+</div><!-- /page -->
+</body>
+
+</html>
