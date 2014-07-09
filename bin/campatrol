@@ -7,11 +7,13 @@ import argparse
 from ipcampy.sentry import watch
 
 parser = argparse.ArgumentParser(
-    description = "Start capruring snapshots from all cams defined in configuration file",
+    description = "Start capturing snapshots from all cams defined in configuration file",
 )
-parser.add_argument('-d', '--cams-data', 
+parser.add_argument(
+        '-d',
+        '--cams-data',
         required = True,
-        metavar = 'PATH', 
+        metavar = 'PATH',
         help = 'Path to the cams configuration (json format).',
 )
 

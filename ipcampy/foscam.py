@@ -14,7 +14,7 @@ def map_position(pos):
 
 class FosCam(IpCam):
     """Specific for Foscam ipcams.
-    Known to work: FI8908W"""
+    Known to work with: FI8908W"""
 
     # FIXME urllib.urlretrieve prompt in case of wrong credentials
     # Find a way to return an error

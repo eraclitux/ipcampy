@@ -8,7 +8,7 @@ This package let you control supported ip cameras from your python app with ease
 
 It comes with utils to quickly make your surveillance system.
 
-Package is written with easy extendibility in mind. Pull requests that add new cams or fix issues are welcome, encouraged, and credited.
+Package is written with easy extendibility in mind, pull requests that add new cams or fix issues are welcome, encouraged, and credited.
 
 Examples
 ========
