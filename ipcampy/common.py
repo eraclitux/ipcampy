@@ -21,4 +21,4 @@ class IpCam:
     def get_type(self):
         """Return ipcam type (foscam, ect).
         Type is taken from package name."""
-        return self.__class__.__module__
+        return self.__class__.__module__.split(".")[1]
