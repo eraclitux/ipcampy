@@ -54,6 +54,12 @@ class FosCam(IpCam):
             raise CamException("Unauthorized. Wrong user or password.")
         return "ok"
 
+    def get_stream_url(self):
+        """Returns streaming url"""
+        return "http://{0}/videostream.cgi?user={1}&amp;pwd={2}&amp;resolution=8&amp;rate=6".format(
+                self.address, self.user, self.pswd
+        )
+
     def status(self):
         """Retrieve some configuration params.
         Note: info are returned even without password"""

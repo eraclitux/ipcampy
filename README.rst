@@ -24,9 +24,11 @@ To get a snapshot from all defined camera every 10 seconds, run this from comman
 
     $ campatrol -d ~/cam.conf
 
-This even start webpanel that can be accessed from any browser (best on mobile ones) using this address::
+This even start a webpanel that can be accessed from any browser using this address::
 
     http://<my_server_ip>:6001
+
+Use chrome or firefox on smartphones and tablets to watch live streams.
 
 Supported cameras
 =================

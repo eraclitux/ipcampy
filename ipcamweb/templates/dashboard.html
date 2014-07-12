@@ -39,7 +39,7 @@
     </div><!-- /footer -->
 </div><!-- /page -->
 
-<!-- Start of second page -->
+<!-- Make a page for every cam-->
 {% if cams is iterable %}
 {% for cam in cams %}
 <div data-role="page" id="cam-{{loop.index}}">
@@ -54,8 +54,14 @@
     </div><!-- /header -->
 
     <div role="main" class="ui-content">
+        {% if cam.get_type() == "foscam" %}
         <div data-role="collapsible">
-            <h4>Status</h4>
+            <h4>Live stream</h4>
+	    <img src="{{cam.get_stream_url()}}">
+        </div>
+        {%endif%}
+        <div data-role="collapsible">
+            <h4>Detailed status</h4>
             {% if cam.status() is iterable %}
             <ul data-role="listview">
             {% for key, value in cam.status().items() %}
