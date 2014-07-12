@@ -28,7 +28,7 @@ if __name__ == '__main__':
     cams = load_cams(args_dict["cams_data"])
     app.cams = cams
     cam_sentry = multiprocessing.Process(target = watch, args = (cams,))
-    web_dashboard = multiprocessing.Process(target = app.run)
+    web_dashboard = multiprocessing.Process(target=app.run, args=("0.0.0.0", 6001))
     cam_sentry.start()
     web_dashboard.start()
     cam_sentry.join()

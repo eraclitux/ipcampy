@@ -54,9 +54,16 @@
     </div><!-- /header -->
 
     <div role="main" class="ui-content">
-        <div class="ui-body ui-body-a ui-corner-all">
-            <p>I'm the second in the source order so I'm hidden when the page loads. I'm just shown if a link that references my id is beeing clicked.</p>
-        </div><!-- /content -->
+        <div data-role="collapsible">
+            <h4>Status</h4>
+            {% if cam.status() is iterable %}
+            <ul data-role="listview">
+            {% for key, value in cam.status().items() %}
+            <li><b>{{ key|e }}:</b> {{ value|e }}</li>
+            {%endfor%}
+            </ul>
+            {%endif%}
+        </div>
     </div><!-- /content -->
 
     <div data-role="footer">
