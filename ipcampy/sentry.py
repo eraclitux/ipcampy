@@ -16,7 +16,7 @@ def __parse_args(cam_c):
     if "name" in cam_c: pswd = cam_c["name"]
     return {"user": user, "pswd": pswd, "name": name, "address": address}
 
-def __load_cams(conf_file):
+def load_cams(conf_file):
     """Reads cams conf from file and intantiate appropiate classes.
     Returns: an array of IpCam classes."""
     with open(conf_file, "r") as c_file:
@@ -28,9 +28,8 @@ def __load_cams(conf_file):
         cams.append(cam_types[cam_c["type"]](**init_params))
     return cams
 
-def watch(conf_file, delay=10):
+def watch(cams, delay=10):
     """Get screenshots from all cams at defined intervall."""
-    cams = __load_cams(conf_file)
     while True:
         for c in cams:
             c.snap()

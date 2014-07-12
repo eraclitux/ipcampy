@@ -1,2 +1,4 @@
 include *.txt
 include *.rst
+recursive-include ipcamweb/templates *
+recursive-include ipcamweb/static *

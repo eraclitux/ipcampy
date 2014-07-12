@@ -26,7 +26,7 @@ class FosCam(IpCam):
             f_path = self.name + ".jpg"
         else:
             # TODO add date 
-            f_path = "{0}-{1}.jpg".format(self.cam_type, self.address)
+            f_path = "/tmp/{0}-{1}.jpg".format(self.cam_type, self.address)
 
         resp = urllib.urlretrieve(
             'http://{0}/snapshot.cgi?user={1}&pwd={2}'.format(
