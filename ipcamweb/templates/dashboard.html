@@ -4,7 +4,7 @@
     <title>IpCamPy Dashboard</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/static/orange.min.css" />
+    <link rel="stylesheet" href="/static/custom.min.css" />
     <link rel="stylesheet" href="/static/jquery.mobile.icons.min.css" />
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile.structure-1.4.3.min.css" />
     <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
@@ -24,7 +24,11 @@
             <h3>Cams</h3>
             <ul data-role="listview" data-inset="true">
                 {% if cams is iterable %}
-                {% for cam in cams %}<li><a href="#cam-1">{{ cam.cam_type }}</a></li>{% endfor %}
+        {% for cam in cams %}<li><a href="#cam-{{loop.index}}">
+            {% if cam.name %}{{cam.name}}{%endif%}
+            {{cam.cam_type}} 
+            {{cam.address}} 
+        </a></li>{% endfor %}
                 {% endif %}
             </ul>
         </div><!-- /heading-->
@@ -36,11 +40,17 @@
 </div><!-- /page -->
 
 <!-- Start of second page -->
-<div data-role="page" id="cam-1">
+{% if cams is iterable %}
+{% for cam in cams %}
+<div data-role="page" id="cam-{{loop.index}}">
 
     <div data-role="header" data-position="fixed">
         <a href="/" data-rel="back" class="ui-btn ui-btn-left ui-alt-icon ui-nodisc-icon ui-corner-all ui-btn-icon-notext ui-icon-carat-l">Back</a>
-        <h1>Cam detail</h1>
+        <h1>
+            Cam
+            {% if cam.name %}{{cam.name}}{%endif%}
+            {% if cam.address %}{{cam.address}}{%endif%}
+    </h1>
     </div><!-- /header -->
 
     <div role="main" class="ui-content">
@@ -53,6 +63,8 @@
         <h4>Page Footer</h4>
     </div><!-- /footer -->
 </div><!-- /page -->
+{% endfor %}
+{% endif %}
 </body>
 
 </html>
