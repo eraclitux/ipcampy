@@ -6,7 +6,7 @@ IpCamPy
 
 This package let you control supported ip cameras from your python app with ease.
 
-It comes with to quickly make your surveillance system, see `Using built in utils`_
+Batteries are included so you can make a DIY surveillance system in a snap, see `Using built in utils`_
 
 Package is written with easy extendibility in mind, pull requests that add new cams or fix issues are welcome, encouraged, and credited.
 

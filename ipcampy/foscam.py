@@ -2,6 +2,7 @@
 # Andrea Masi 2014 eraclitux@gmail.com
 
 import urllib
+import datetime
 # TODO remove this requiremet (?), use only urllib
 import requests
 from ipcampy.common import IpCam, CamException
@@ -16,17 +17,19 @@ class FosCam(IpCam):
     """Specific for Foscam ipcams.
     Known to work with: FI8908W"""
 
-    # FIXME urllib.urlretrieve prompt in case of wrong credentials
-    # Find a way to return an error
-    def snap(self, filename=None):
+    # FIXME urllib.urlretrieve prompt in case of wrong credentials,
+    # find a way to return an error.
+    def snap(self, path=None):
         """Get a snapshot and save it to disk."""
-        if filename:
-            f_path = filename
-        elif self.name:
-            f_path = self.name + ".jpg"
-        else:
-            # TODO add date 
-            f_path = "/tmp/{0}-{1}.jpg".format(self.cam_type, self.address)
+        if path is None:
+            path = "/tmp"
+        cam_id = self.address.replace(".", "").replace(":", "")
+        f_path = "{0}/{1}_{2}_{3}.jpg".format(
+                path,
+                self.cam_type,
+                cam_id,
+                datetime.datetime.now().strftime("%d%m%Y%H%M%S"),
+        )
 
         resp = urllib.urlretrieve(
             'http://{0}/snapshot.cgi?user={1}&pwd={2}'.format(
