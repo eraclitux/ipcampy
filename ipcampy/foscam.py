@@ -19,10 +19,14 @@ class FosCam(IpCam):
 
     # FIXME urllib.urlretrieve prompt in case of wrong credentials,
     # find a way to return an error.
+    # FIXME not portable
     def snap(self, path=None):
         """Get a snapshot and save it to disk."""
         if path is None:
             path = "/tmp"
+        else:
+            path = path.rstrip("/")
+        print path
         cam_id = self.address.replace(".", "").replace(":", "")
         f_path = "{0}/{1}_{2}_{3}.jpg".format(
                 path,

@@ -20,6 +20,13 @@ parser.add_argument(
         help = 'Path to the cams configuration (json format).',
 )
 
+parser.add_argument(
+        '-p',
+        '--image-path',
+        metavar = 'PATH',
+        help = 'Path where to store snapshots.',
+)
+
 if __name__ == '__main__':
     args = parser.parse_args()
     args_dict = vars(args)
@@ -27,7 +34,7 @@ if __name__ == '__main__':
     # with communication between processes
     cams = load_cams(args_dict["cams_data"])
     app.cams = cams
-    cam_sentry = multiprocessing.Process(target = watch, args = (cams,))
+    cam_sentry = multiprocessing.Process(target = watch, args = (cams,args_dict["image_path"]))
     web_dashboard = multiprocessing.Process(target=app.run, args=("0.0.0.0", 6001))
     cam_sentry.start()
     web_dashboard.start()

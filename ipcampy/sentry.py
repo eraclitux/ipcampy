@@ -28,9 +28,9 @@ def load_cams(conf_file):
         cams.append(cam_types[cam_c["type"]](**init_params))
     return cams
 
-def watch(cams, delay=10):
+def watch(cams, path=None, delay=10):
     """Get screenshots from all cams at defined intervall."""
     while True:
         for c in cams:
-            c.snap()
+            c.snap(path)
         time.sleep(delay)
