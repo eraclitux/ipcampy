@@ -35,7 +35,9 @@ Supported cameras
 
 Foscam
 ------
-- **FI8908W** and clones. May work on similar cams from same family too. 
+- **FI8908W** and clones. May works on similar cams from same family too. Please report camera working status opening an issue_.
+
+.. _issue: https://github.com/eraclitux/ipcampy/issues
 
 Notes
 =====

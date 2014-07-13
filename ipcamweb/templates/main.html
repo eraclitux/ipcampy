@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}Main{%endblock%}
+{% block body %}
+<!-- Start of first page -->
+<div data-role="page" id="foo">
+
+    <div data-role="header">
+        <h1>Main dashboard</h1>
+    </div><!-- /header -->
+
+    <div role="main" class="ui-content">
+        <div class="ui-body ui-body-a ui-corner-all">
+            <h3>Cams</h3>
+            <ul data-role="listview" data-inset="true">
+                {% if cams is iterable %}
+        {% for cam in cams %}<li><a href="/cam/{{loop.index}}">
+            {% if cam.name %}{{cam.name}}{%endif%}
+            {{cam.cam_type}} 
+            {{cam.address}} 
+        </a></li>{% endfor %}
+                {% endif %}
+            </ul>
+        </div><!-- /heading-->
+    </div><!-- /content -->
+
+    <div data-role="footer">
+        <h4>IpCamPy</h4>
+    </div><!-- /footer -->
+</div><!-- /page -->
+{% endblock %}

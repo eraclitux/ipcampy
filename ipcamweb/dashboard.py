@@ -8,7 +8,11 @@ app.debug = True
 
 @app.route("/")
 def main():
-    return render_template("dashboard.html", cams=app.cams)
+    return render_template("main.html", cams=app.cams)
+
+@app.route("/cam/<int:cam_id>")
+def cam_detail(cam_id):
+    return render_template("cam_detail.html", cam=app.cams[cam_id-1])
 
 @app.route("/get-image/<image>")
 def get_image(image):

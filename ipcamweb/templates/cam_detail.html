@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+{% block title %}Cam detail{%endblock%}
+{% block body %}
+<div data-role="page" id="cam">
+
+    <div data-role="header" data-position="fixed">
+        <a href="/" data-rel="back" class="ui-btn ui-btn-left ui-alt-icon ui-nodisc-icon ui-corner-all ui-btn-icon-notext ui-icon-carat-l">Back</a>
+        <h1>
+            Cam
+            {% if cam.name %}{{cam.name}}{%endif%}
+            {% if cam.address %}{{cam.address}}{%endif%}
+        </h1>
+    </div><!-- /header -->
+
+    <div role="main" class="ui-content">
+        {% if cam.get_type() == "foscam" %}
+        <div data-role="collapsible">
+            <h4>Live stream</h4>
+            <div style="text-align:center;">
+                <img style="width:300px;" src="{{cam.get_stream_url()}}">
+            </div>
+        </div>
+        {%endif%}
+        <div data-role="collapsible">
+            <h4>Detailed status</h4>
+            {% if cam.status() is iterable %}
+            <ul data-role="listview">
+            {% for key, value in cam.status().items() %}
+            <li><b>{{ key|e }}:</b> {{ value|e }}</li>
+            {%endfor%}
+            </ul>
+            {%endif%}
+        </div>
+    </div><!-- /content -->
+
+    <div data-role="footer">
+        <h4>IpCamPy</h4>
+    </div><!-- /footer -->
+</div><!-- /page -->
+{% endblock %}
