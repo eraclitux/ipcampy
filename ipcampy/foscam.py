@@ -3,9 +3,14 @@
 
 import urllib
 import datetime
+import os
 # TODO remove this requiremet (?), use only urllib
 import requests
 from ipcampy.common import IpCam, CamException
+
+def ensure_snapshot_dir(directory):
+    if not os.path.exists(directory):
+        os.makedirs(directory)
 
 def map_position(pos):
     """Map natural position to machine code postion"""
@@ -26,13 +31,14 @@ class FosCam(IpCam):
             path = "/tmp"
         else:
             path = path.rstrip("/")
-        print path
         cam_id = self.address.replace(".", "").replace(":", "")
-        f_path = "{0}/{1}_{2}_{3}.jpg".format(
+        sub_dir = datetime.datetime.now().strftime("%d%m%Y%H")
+        ensure_snapshot_dir(path+"/"+cam_id+"/"+sub_dir)
+        f_path = "{0}/{1}/{2}/{3}.jpg".format(
                 path,
-                self.cam_type,
                 cam_id,
-                datetime.datetime.now().strftime("%d%m%Y%H%M%S"),
+                sub_dir,
+                datetime.datetime.now().strftime("%M%S"),
         )
 
         urllib.urlretrieve(

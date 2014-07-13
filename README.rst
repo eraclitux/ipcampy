@@ -30,6 +30,8 @@ This even start a webpanel that can be accessed from any browser using this addr
 
 Use chrome or firefox on smartphones and tablets to watch live streams.
 
+Snapshots are stored in ``/tmp`` for default but a different path can be specified with ``-p`` option.
+
 Supported cameras
 =================
 
