@@ -11,9 +11,12 @@ def __parse_args(cam_c):
     pswd = None
     name = None
     address = "{address}:{port}".format(**cam_c)
-    if "user" in cam_c: user = cam_c["user"]
-    if "pswd" in cam_c: pswd = cam_c["pswd"]
-    if "name" in cam_c: pswd = cam_c["name"]
+    if "user" in cam_c:
+        user = cam_c["user"]
+        if "pswd" in cam_c:
+            pswd = cam_c["pswd"]
+    if "name" in cam_c:
+        pswd = cam_c["name"]
     return {"user": user, "pswd": pswd, "name": name, "address": address}
 
 def load_cams(conf_file):

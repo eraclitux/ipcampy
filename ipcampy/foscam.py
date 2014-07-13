@@ -35,7 +35,7 @@ class FosCam(IpCam):
                 datetime.datetime.now().strftime("%d%m%Y%H%M%S"),
         )
 
-        resp = urllib.urlretrieve(
+        urllib.urlretrieve(
             'http://{0}/snapshot.cgi?user={1}&pwd={2}'.format(
                                     self.address, 
                                     self.user, 
