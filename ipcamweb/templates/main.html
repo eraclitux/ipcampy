@@ -14,9 +14,9 @@
             <ul data-role="listview" data-inset="true">
                 {% if cams is iterable %}
         {% for cam in cams %}<li><a href="/cam/{{loop.index}}">
-            {% if cam.name %}{{cam.name}}{%endif%}
-            {{cam.cam_type}} 
-            {{cam.address}} 
+            {% if cam.name %}{{cam.name}}
+            {%else%}{{cam.cam_type}} {{cam.address}}
+            {%endif%}
         </a></li>{% endfor %}
                 {% endif %}
             </ul>

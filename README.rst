@@ -17,8 +17,8 @@ Using built in utils
 --------------------
 Define a configuraton file of cams in json. For example, save these lines in `cam.conf`::
 
-    {"address":"192.168.1.20", "user":"admin", "pswd":"xxyyzz", "port":"8010" , "type":"foscam"}
-    {"address":"192.168.1.21", "user":"admin", "pswd":"xxyyzz", "port":"8010" , "type":"foscam"}
+    {"address":"192.168.1.20", "user":"admin", "pswd":"xxyyzz", "port":"8010", "type":"foscam" "name":"Garden"}
+    {"address":"192.168.1.21", "user":"admin", "pswd":"xxyyzz", "port":"8010", "type":"foscam", "name":"Gate"}
 
 To get a snapshot from all defined camera every 10 seconds, run this from command line::
 
@@ -44,3 +44,7 @@ Foscam
 Notes
 =====
 This package is in early development. Things **could** work or maybe not. APIs can quickly change.
+
+Credits
+=======
+Favicon: http://www.iconarchive.com/artist/yusuke-kamiyamane.html

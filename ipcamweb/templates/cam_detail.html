@@ -6,9 +6,9 @@
     <div data-role="header" data-position="fixed">
         <a href="/" data-rel="back" class="ui-btn ui-btn-left ui-alt-icon ui-nodisc-icon ui-corner-all ui-btn-icon-notext ui-icon-carat-l">Back</a>
         <h1>
-            Cam
-            {% if cam.name %}{{cam.name}}{%endif%}
-            {% if cam.address %}{{cam.address}}{%endif%}
+            {% if cam.name %}{{cam.name}}
+            {%else%}{{cam.address}}
+            {%endif%}
         </h1>
     </div><!-- /header -->
 
@@ -23,13 +23,14 @@
         {%endif%}
         <div data-role="collapsible">
             <h4>Detailed status</h4>
-            {% if cam.status() is iterable %}
             <ul data-role="listview">
+            <li><b>Address:</b> {{ cam.address }}</li>
+            {% if cam.status() is iterable %}
             {% for key, value in cam.status().items() %}
             <li><b>{{ key|e }}:</b> {{ value|e }}</li>
             {%endfor%}
-            </ul>
             {%endif%}
+            </ul>
         </div>
     </div><!-- /content -->
 
