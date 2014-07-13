@@ -16,7 +16,7 @@ def __parse_args(cam_c):
         if "pswd" in cam_c:
             pswd = cam_c["pswd"]
     if "name" in cam_c:
-        pswd = cam_c["name"]
+        name = cam_c["name"]
     return {"user": user, "pswd": pswd, "name": name, "address": address}
 
 def load_cams(conf_file):
