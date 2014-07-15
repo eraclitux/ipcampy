@@ -6,7 +6,7 @@ def ensure_secret():
     """Check if secret key for coockies exists,
     generating it otherwise."""
     home_dir = os.environ['HOME']
-    file_name = home_dir + "/.ipcampy"
+    file_name = home_dir + "/.ipcamweb"
     if os.path.exists(file_name):
         with open(file_name, "r") as s_file:
             secret = s_file.readline()
