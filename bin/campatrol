@@ -7,6 +7,7 @@ import multiprocessing
 
 from ipcampy.sentry import load_cams, watch
 from ipcamweb.dashboard import app
+from ipcamweb.utils import ensure_secret
 
 parser = argparse.ArgumentParser(
     description = "Start capturing snapshots from all cams defined in configuration file",
@@ -22,7 +23,14 @@ parser.add_argument(
 
 parser.add_argument(
         '-p',
-        '--image-path',
+        '--dashboard-password',
+        required = True,
+        metavar = 'xxx',
+        help = 'Password to access the web dashboard. User is "watcher".',
+)
+parser.add_argument(
+        '-s',
+        '--store-path',
         metavar = 'PATH',
         help = 'Path where to store snapshots.',
 )
@@ -30,11 +38,13 @@ parser.add_argument(
 if __name__ == '__main__':
     args = parser.parse_args()
     args_dict = vars(args)
-    # FIXME hackish, one day replace cams duplication
-    # with communication between processes
     cams = load_cams(args_dict["cams_data"])
     app.cams = cams
-    cam_sentry = multiprocessing.Process(target = watch, args = (cams, args_dict["image_path"]))
+    app.secret_key = ensure_secret()
+    app.PASSWORD = args_dict["dashboard_password"]
+    # FIXME hackish, one day replace cams duplication
+    # with communication between processes
+    cam_sentry = multiprocessing.Process(target = watch, args = (cams, args_dict["store_path"]))
     web_dashboard = multiprocessing.Process(target=app.run, args=("0.0.0.0", 6001))
     cam_sentry.start()
     web_dashboard.start()

@@ -22,22 +22,24 @@ Define a configuraton file of cams in json. For example, save these lines in `ca
 
 To get a snapshot from all defined camera every 10 seconds, run this from command line::
 
-    $ campatrol -d ~/cam.conf
+    $ campatrol -d ~/cam.conf -p xxx
 
-This even start a webpanel that can be accessed from any browser using this address::
+This even start a webpanel that can be accessed from any browser using this address with username ``watcher`` and password ``xxx``::
 
     http://<my_server_ip>:6001
 
 Use chrome or firefox on smartphones and tablets to watch live streams.
 
-Snapshots are stored in ``/tmp`` for default but a different path can be specified with ``-p`` option.
+Snapshots are stored in ``/tmp`` for default but a different path can be specified with ``-s`` option.
 
 Supported cameras
 =================
 
+Defines wich type to use in json configuration "type" key.
+
 Foscam
 ------
-- **FI8908W** and clones. May works on similar cams from same family too. Please report camera working status opening an issue_.
+- **FI8908W** and clones, set ``"type": "foscam"``. May works on similar cams from same family too. Please report camera working status opening an issue_.
 
 .. _issue: https://github.com/eraclitux/ipcampy/issues
 

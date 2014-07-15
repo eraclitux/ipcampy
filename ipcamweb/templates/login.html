@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Main{%endblock%}
+{% block body %}
+<!-- Start of page -->
+<div data-role="page" id="login">
+    <div role="main" class="ui-content">
+        <div class="ui-body ui-body-a ui-corner-all">
+            <h3>Login</h3>
+            <form action="login" method="post">
+            <label for="text-basic">Username:</label>
+            <input type="text" name="username" id="username" value="">
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password" value="" autocomplete="off">
+            <input type=submit value=Login>
+            </form>
+            <br>
+            <div style="text-align:center;color:#888"><b>IpCamPy</p></div>
+        </div>
+    </div>
+
+</div><!-- /page -->
+{% endblock %}
