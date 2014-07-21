@@ -35,6 +35,8 @@ def get_image(image):
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
+    if is_authenticated():
+        return redirect(url_for('main'))
     if request.method == 'POST':
         session['username'] = request.form['username']
         session['password'] = request.form['password']

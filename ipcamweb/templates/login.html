@@ -14,9 +14,20 @@
             <input type=submit value=Login>
             </form>
             <br>
-            <div style="text-align:center;color:#888"><b>IpCamPy</p></div>
+            <div style="text-align:center;color:#888"><b>IpCamPy</b></div>
         </div>
     </div>
 
 </div><!-- /page -->
+<script>
+{# FIXME find a better solution for #2 as make POST via ajax #}
+$( document ).on( "pagecreate", "#main", function() {
+    //console.log("BP-A");
+    $(':mobile-pagecontainer').pagecontainer('change', '/', {relaod:false});
+{#
+    // Seems to not work
+    //$.mobile.navigate( "/" );
+#}
+});
+</script>
 {% endblock %}
