@@ -1,1 +1,2 @@
+v0.2.0-alfa, 21/07/2014 -- Adds a mobile web panel
 v0.1.0-alfa, 03/07/2014 -- Initial development release
