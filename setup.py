@@ -22,7 +22,7 @@ setup(
         'mock'
     ],
     keywords='ipcam foscam raspberrypi surveillance',
-    license='LICENSE.txt',
+    license='MIT',
     description='Easily control ip cameras. Comes with built in utilities to make a simple surveillance system.',
     long_description=open('README.rst').read(),
     include_package_data=True,

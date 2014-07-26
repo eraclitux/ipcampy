@@ -45,7 +45,9 @@ Snapshots are stored in ``/tmp`` for default but a different path can be specifi
 Screenshots
 ===========
 
-|image1|_ |image2|_ |image3|_
+|image1|_
+|image2|_
+|image3|_
 
 .. |image1| image:: http://www.eraclitux.com/public/ipcampy-1.png
 .. _image1: http://www.eraclitux.com/public/ipcampy-1.png

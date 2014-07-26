@@ -4,8 +4,6 @@
 from flask import Flask, render_template, send_from_directory, redirect, session, request, url_for
 
 app = Flask("ipcamweb")
-# FIXME
-app.debug = True
 USERNAME = "watcher"
 
 def is_authenticated():

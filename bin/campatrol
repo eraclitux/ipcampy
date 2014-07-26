@@ -28,6 +28,7 @@ parser.add_argument(
         metavar = 'xxx',
         help = 'Password to access the web dashboard. User is "watcher".',
 )
+
 parser.add_argument(
         '-s',
         '--store-path',
@@ -35,10 +36,19 @@ parser.add_argument(
         help = 'Path where to store snapshots.',
 )
 
+parser.add_argument(
+        '--debug',
+        dest = 'debug',
+        action = 'store_true',
+        help = "Enable debug mode.",
+)
+parser.set_defaults(debug=False)
+
 if __name__ == '__main__':
     args = parser.parse_args()
     args_dict = vars(args)
     cams = load_cams(args_dict["cams_data"])
+    app.debug = args_dict["debug"]
     app.cams = cams
     app.secret_key = ensure_secret()
     app.PASSWORD = args_dict["dashboard_password"]
