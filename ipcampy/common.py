@@ -12,6 +12,7 @@ class IpCam:
         self.cam_type = self.get_type()
         self.address = address
         self.name = name
+        self.cam_id = self.address.replace(".", "").replace(":", "")
         # Human friendly name like 'Gate-1'
         if self.name:
             self.name = name.replace(" ","-")

@@ -80,6 +80,7 @@ This package is in early development. Things **could** work or maybe not. APIs c
 To get the latest code clone the github's repository instead of using ``pip``::
 
     $ git clone https://github.com/eraclitux/ipcampy.git
+    $ python setup.py install
 
 Get support
 ===========

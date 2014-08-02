@@ -51,6 +51,7 @@ if __name__ == '__main__':
     app.debug = args_dict["debug"]
     app.cams = cams
     app.secret_key = ensure_secret()
+    app.store_path = args_dict["store_path"] or "/tmp"
     app.PASSWORD = args_dict["dashboard_password"]
     # FIXME hackish, one day replace cams duplication
     # with communication between processes

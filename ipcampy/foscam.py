@@ -24,21 +24,22 @@ class FosCam(IpCam):
 
     # FIXME urllib.urlretrieve prompt in case of wrong credentials,
     # find a way to return an error.
-    # FIXME not portable
+    # FIXME not portable cause paths
     def snap(self, path=None):
         """Get a snapshot and save it to disk."""
         if path is None:
             path = "/tmp"
         else:
             path = path.rstrip("/")
-        cam_id = self.address.replace(".", "").replace(":", "")
-        sub_dir = datetime.datetime.now().strftime("%d%m%Y%H")
-        ensure_snapshot_dir(path+"/"+cam_id+"/"+sub_dir)
-        f_path = "{0}/{1}/{2}/{3}.jpg".format(
+        day_dir = datetime.datetime.now().strftime("%d%m%Y")
+        hour_dir = datetime.datetime.now().strftime("%H%M")
+        ensure_snapshot_dir(path+"/"+self.cam_id+"/"+day_dir+"/"+hour_dir)
+        f_path = "{0}/{1}/{2}/{3}/{4}.jpg".format(
                 path,
-                cam_id,
-                sub_dir,
-                datetime.datetime.now().strftime("%M%S"),
+                self.cam_id,
+                day_dir,
+                hour_dir,
+                datetime.datetime.now().strftime("%S"),
         )
 
         urllib.urlretrieve(

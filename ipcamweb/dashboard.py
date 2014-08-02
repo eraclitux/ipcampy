@@ -2,6 +2,7 @@
 # Andrea Masi 2014 eraclitux@gmail.com
 
 from flask import Flask, render_template, send_from_directory, redirect, session, request, url_for
+from utils import list_snapshots_days
 
 app = Flask("ipcamweb")
 USERNAME = "watcher"
@@ -24,7 +25,8 @@ def main():
 
 @app.route("/cam/<int:cam_id>")
 def cam_detail(cam_id):
-    return render_template("cam_detail.html", cam=app.cams[cam_id-1])
+    days = list_snapshots_days(app.store_path, app.cams[cam_id - 1].cam_id)
+    return render_template("cam_detail.html", cam=app.cams[cam_id - 1])
 
 # FIXME stub
 @app.route("/get-image/<image>")
