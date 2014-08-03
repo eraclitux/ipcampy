@@ -23,7 +23,11 @@
         {%endif%}
         <div data-role="collapsible">
             <h4>Browse screenshoots</h4>
-            <input type="text" data-role="date" data-inline="true">
+            <ul data-role="listview">
+            {% for day in days %}
+	        <li><a href="/screenshots/{{cam_index}}/{{day[1]}}">{{ day[0]|e }}</a></li>
+            {%endfor%}
+            </ul>
         </div>
         <div data-role="collapsible">
             <h4>Detailed status</h4>
