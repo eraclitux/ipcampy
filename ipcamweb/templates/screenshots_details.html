@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+{% block head %}
+<title>Screenshots - IpCamPy Dashboard</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="/static/custom.min.css" />
+    <link rel="stylesheet" href="/static/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.3/jquery.mobile.structure-1.4.3.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script>
+    {#
+    Custom autodividersSelector, needs to load this before jquery.mobile 
+    http://demos.jquerymobile.com/1.4.0/listview-autodividers-selector/ 
+    #}
+    $( document ).on( "mobileinit", function() {
+        console.log("MARK");
+        $.mobile.listview.prototype.options.autodividersSelector = function (li) {
+                var out = li.attr("time");
+                return out;
+        };
+    });
+    </script>
+    <script src="http://code.jquery.com/mobile/1.4.3/jquery.mobile-1.4.3.min.js"></script>
+    <link rel="icon" type="image/png" href="/static/favicon.png">
+{% endblock %}
+{% block body %}
+<div data-role="page" id="cam">
+
+    <div data-role="header" data-position="fixed">
+        <a href="/" data-rel="back" class="ui-btn ui-btn-left ui-alt-icon ui-nodisc-icon ui-corner-all ui-btn-icon-notext ui-icon-carat-l">Back</a>
+        <h1>
+            {% if cam.name %}{{cam.name}}
+            {%else%}{{cam.address}}
+	    {%endif%} screenshots
+        </h1>
+    </div><!-- /header -->
+
+    <div role="main" class="ui-content">
+        <div class="ui-body ui-body-a ui-corner-all">
+            <h4>Details for {{ day[0] }}</h4>
+            <ul data-role="listview" id="hours-list" data-autodividers="true" data-filter="true" data-inset="true">
+            {% for hour in hours %}
+	        <li time="{{hour[0][:2]|e}}"><a href="/view-screenshots/{{cam_index}}/{{day[1]}}/{{hour[1]}}">{{hour[0]|e}}</a></li>
+            {%endfor%}
+            </ul>
+        </div>
+    </div><!-- /content -->
+
+    <div data-role="footer">
+        <h4>IpCamPy</h4>
+    </div><!-- /footer -->
+</div><!-- /page -->
+{% endblock %}
