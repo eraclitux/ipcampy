@@ -13,7 +13,6 @@
     http://demos.jquerymobile.com/1.4.0/listview-autodividers-selector/ 
     #}
     $( document ).on( "mobileinit", function() {
-        console.log("MARK");
         $.mobile.listview.prototype.options.autodividersSelector = function (li) {
                 var out = li.attr("time");
                 return out;

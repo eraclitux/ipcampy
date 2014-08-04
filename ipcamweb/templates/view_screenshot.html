@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Screenshots details{%endblock%}
+{% block title %}Screenshot{%endblock%}
 {% block body %}
 <div data-role="page" id="cam">
 
@@ -8,23 +8,16 @@
         <h1>
             {% if cam.name %}{{cam.name}}
             {%else%}{{cam.address}}
-	    {%endif%} screenshots
+	        {%endif%} screenshot
         </h1>
     </div><!-- /header -->
 
     <div role="main" class="ui-content">
         <div class="ui-body ui-body-a ui-corner-all">
-		<h4>{{date}} {{hourm[:2]}}:{{hourm[2:]}}</h4>
-            <ul data-role="listview" data-inset="true">
-            {% for scr in screenshots %}
-            <li>
-                <a href="/view-screenshot/{{cam_index}}/{{day}}/{{hourm}}/{{scr}}">
-                <img src="/get-image/{{cam_index}}/{{day}}/{{hourm}}/{{scr}}">
-                <h2>{{hourm[:2]}}:{{hourm[2:]}}:{{scr[:2]}}</h2>
-                </a>
-            </li>
-            {%endfor%}
-            </ul>
+            <h4>At {{hourm[:2]}}:{{hourm[2:]}}:{{screenshot[:2]}}</h4>
+            <div style="text-align:center;">
+            	<img src="/get-image/{{cam_index}}/{{day}}/{{hourm}}/{{screenshot}}">
+	        </div>
         </div>
     </div><!-- /content -->
 

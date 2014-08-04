@@ -52,8 +52,20 @@ def view_screenshots(cam_index, day, hourm):
             "view_screenshots.html",
             cam_index=cam_index, 
             day=day,
+	    date=datetime.datetime.strptime(day, "%d%m%Y").strftime('%d/%m/%y'),
             hourm=hourm,
             screenshots=screenshots,
+            cam=app.cams[cam_index - 1],
+    )
+
+@app.route("/view-screenshot/<int:cam_index>/<day>/<hourm>/<screenshot>")
+def view_screenshot(cam_index, day, hourm, screenshot):
+    return render_template(
+            "view_screenshot.html",
+            cam_index=cam_index, 
+            day=day,
+            hourm=hourm,
+            screenshot=screenshot,
             cam=app.cams[cam_index - 1],
     )
 
