@@ -11,7 +11,12 @@ IpCamPy
 
 This package let you control supported ip cameras from your python app with ease.
 
-Batteries are included so you can make a DIY surveillance system in a snap, see `A Raspberry Pi surveillance system`_
+Batteries are included so you can make a DIY surveillance system in a snap. Included functionality are:
+
+* process that collects a screenshot from every camera at given interval
+* mobile web interface to view streams and saved screenshots. Is's served from an integrated webserver
+
+See `A Raspberry Pi surveillance system`_
 
 Package is written with easy extendibility in mind, pull requests that add new cams or fix issues are welcome, encouraged, and credited.
 
@@ -48,15 +53,19 @@ Screenshots
 |image1|_
 |image2|_
 |image3|_
+|image4|_
 
-.. |image1| image:: http://www.eraclitux.com/public/ipcampy-1.png
-.. _image1: http://www.eraclitux.com/public/ipcampy-1.png
+.. |image1| image:: http://www.eraclitux.com/public/images/ipcampy-1.png
+.. _image1: http://www.eraclitux.com/public/images/ipcampy-1.png
 
-.. |image2| image:: http://www.eraclitux.com/public/ipcampy-2.png
-.. _image2: http://www.eraclitux.com/public/ipcampy-2.png
+.. |image2| image:: http://www.eraclitux.com/public/images/ipcampy-2.png
+.. _image2: http://www.eraclitux.com/public/images/ipcampy-2.png
 
-.. |image3| image:: http://www.eraclitux.com/public/ipcampy-3.png
-.. _image3: http://www.eraclitux.com/public/ipcampy-3.png
+.. |image3| image:: http://www.eraclitux.com/public/images/ipcampy-3.png
+.. _image3: http://www.eraclitux.com/public/images/ipcampy-3.png
+
+.. |image4| image:: http://www.eraclitux.com/public/images/ipcampy-4.png
+.. _image4: http://www.eraclitux.com/public/images/ipcampy-4.png
 
 Supported cameras
 =================
@@ -66,9 +75,9 @@ Defines wich type to use in json configuration "type" key.
 Foscam
 ------
 
-- **FI8908W** and clones, set ``"type": "foscam"``. May works on similar cams from same family too. 
+- ``"type": "foscam"`` for **FI8908W** and clones. May works on similar cams from same family too. 
 
-Please report camera working status opening an issue_.
+Please report working status of cameras opening an issue_ or using `mailing list <https://groups.google.com/d/forum/ipcampy>`_
 
 .. _issue: https://github.com/eraclitux/ipcampy/issues
 

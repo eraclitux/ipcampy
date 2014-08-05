@@ -6,7 +6,7 @@ except ImportError:
 
 setup(
     name='IpCamPy',
-    version='0.2.1',
+    version='0.3.0',
     author='Andrea Masi',
     author_email='eraclitux@gmail.com',
     packages=['ipcampy', 'ipcampy.test', 'ipcamweb'],
