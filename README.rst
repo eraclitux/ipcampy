@@ -11,10 +11,10 @@ IpCamPy
 
 This package let you control supported ip cameras from your python app with ease.
 
-Batteries are included so you can make a DIY surveillance system in a snap. Included functionality are:
+Batteries are included so you can make a DIY surveillance system in a snap. Included functionalities are:
 
-* process that collects a screenshot from every camera at given interval
-* mobile web interface to view streams and saved screenshots. Is's served from an integrated webserver
+* process that collects a screenshot from every camera at given interval.
+* mobile web interface to view streams and saved screenshots. Is's served from an integrated webserver.
 
 See `A Raspberry Pi surveillance system`_
 
@@ -32,7 +32,7 @@ Login to your Pi and get the code from the cheese shop::
 
 Define a configuraton file of your cams in json. For example, save these lines in `cam.conf`::
 
-    {"address":"192.168.1.20", "user":"admin", "pswd":"xxyyzz", "port":"8010", "type":"foscam" "name":"Garden"}
+    {"address":"192.168.1.20", "user":"admin", "pswd":"xxyyzz", "port":"8010", "type":"foscam", "name":"Garden"}
     {"address":"192.168.1.21", "user":"admin", "pswd":"xxyyzz", "port":"8010", "type":"foscam", "name":"Gate"}
 
 Start to get a snapshot from all defined camera every 10 seconds running::
