@@ -91,11 +91,6 @@ To get the latest code clone the github's repository instead of using ``pip``::
     $ git clone https://github.com/eraclitux/ipcampy.git
     $ python setup.py install
 
-Get support
-===========
-
-Use the official `mailing list <https://groups.google.com/d/forum/ipcampy>`_ to ask questions about using the package and follow its development.
-
 Credits
 =======
 
