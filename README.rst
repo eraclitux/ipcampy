@@ -2,10 +2,7 @@
 IpCamPy
 =======
 
-|image0|_
-
-.. |image0| image:: https://drone.io/github.com/eraclitux/ipcampy/status.png
-.. _image0: https://drone.io/github.com/eraclitux/ipcampy/latest
+.. image:: https://img.shields.io/maintenance/no/2015.svg
 
 .. contents::
 
